@@ -4,8 +4,15 @@ use App\Models\Todo;
 use Illuminate\Support\Facades\Auth;
 
 // $todos = Todo::select()->where('user_id', 'is', Auth::user()->id)->orderByDesc('due_date')->take(2)->get();
-$todos = Todo::query()->where('user_id', 'is', Auth::user()->id);
+// $todos = Todo::query()->where('user_id', '=', Auth::user()->id)->orderBy('due_date', 'asc')->take(5)->get();
+$todos = Todo::query()->where('user_id', '=', Auth::user()->id)->where('due_date', '=', date('Y-m-d'))->get();
 
-foreach ($todos  as $todo) {
-    print_r($todo['name'] . $todo['due_date']);
-}
+?>
+
+<div>
+    <ul>
+        @foreach($todos as $todo)
+        @include('components.user.todos.todo')
+        @endforeach
+    </ul>
+</div>
