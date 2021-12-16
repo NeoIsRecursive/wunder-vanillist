@@ -1,3 +1,7 @@
     @include('components.nav')
-    Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+    @auth
+    @include('components.user.index')
+    @else
+    @include('components.guest.index')
+    @endauth
     @include('components.footer')
