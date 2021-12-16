@@ -10,6 +10,13 @@
         <input type="date" id="due_date" name="due_date">
     </div>
     <button type="submit" class="submit">add</button>
+    @if ($errors->any())
+    @foreach($errors->all() as $error)
+    <p>
+        {{ $error }}
+    </p>
+    @endforeach
+    @endif
     @csrf
 </form>
 @include('components.footer')

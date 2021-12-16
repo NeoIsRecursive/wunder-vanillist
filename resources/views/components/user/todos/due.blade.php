@@ -10,9 +10,12 @@ $todos = Todo::query()->where('user_id', '=', Auth::user()->id)->where('due_date
 ?>
 
 <div>
-    <ul>
-        @foreach($todos as $todo)
-        @include('components.user.todos.todo')
-        @endforeach
-    </ul>
+    @if (count($todos) < 1) <p class="text-center">Looks like you dont have anything due today!</p>
+        @else
+        <ul>
+            @foreach($todos as $todo)
+            @include('components.user.todos.todo')
+            @endforeach
+        </ul>
+        @endif
 </div>

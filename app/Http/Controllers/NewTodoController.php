@@ -20,12 +20,12 @@ class NewTodoController extends Controller
         //
 
         if ($request['due_date'] === null) {
-            $request['due_date'] = date('Ymd');
+            $request['due_date'] = date('Y-m-d');
         }
 
         $data = request()->validate([
             'name' => ['required', 'string', 'max:255'],
-            'due_date' => ['date']
+            'due_date' => ['date', 'after:' . date('Y-m-d')]
         ]);
 
 
