@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 //user
 Route::get('/profile', function () {
-    return view('user.profile');
+    return view('components.user.profile');
 })->middleware('auth')->name('profile');
 
 //todos

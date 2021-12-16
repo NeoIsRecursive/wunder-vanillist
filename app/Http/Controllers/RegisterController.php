@@ -28,10 +28,31 @@ class RegisterController extends Controller
         $user->name = $data['name'];
         $user->password = Hash::make($data['password']);
         $user->email = $data['email'];
+        $user->profile_image = $this->createAvatar($user->name);
         $user->save();
 
         Auth::loginUsingId($user->id);
 
         return redirect(route('home'));
+    }
+
+    private function createAvatar($name)
+    {
+        $Width = 4;
+        $Height = 4;
+
+        $Image = imagecreate($Width, $Height);
+        for ($Row = 1; $Row <= $Height; $Row++) {
+            for ($Column = 1; $Column <= $Width; $Column++) {
+                $Red = random_int(0, 255);
+                $Green = random_int(0, 255);
+                $Blue = random_int(0, 255);
+                $Colour = imagecolorallocate($Image, $Red, $Green, $Blue);
+                imagesetpixel($Image, $Column - 1, $Row - 1, $Colour);
+            }
+        }
+        $path = 'image/' . $name . time() . '.png';
+        imagepng($Image, $path);
+        return $path;
     }
 }
