@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\NewTodoController;
 use App\Http\Middleware\Authenticate;
+use App\Http\Controllers\NewTaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,18 +30,30 @@ Route::get('/profile', function () {
 
 //todos
 
-//new
+//new todo
 Route::post('/newTodo', NewTodoController::class)->middleware('auth')->name('todo.create');
 
 Route::get('/newTodo', function () {
     return view('components.user.todos.new');
 })->middleware('auth')->name('todo.new');
 
+//new task
+Route::post('/newTask', NewTaskController::class)->middleware('auth')->name('task.create');
+
+//tasklist
+
+Route::get('/tasks/{todoid}', function ($todo_id) {
+    return view('components.user.todos.todoTask', ['todo_id' => $todo_id]);
+})->middleware('auth')->name('tasks');
+
+
+//list
+
 //list
 
 Route::get('/todos', function () {
     return view('components.user.todos.all');
-})->name('todo.list');
+})->middleware('auth')->name('todo.list');
 
 //auth
 Route::post('/login', LoginController::class)->name('login.check');

@@ -6,7 +6,7 @@
         <input type="text" name="name" id="name">
     </div>
     <div class="input">
-        <label for="due_date">due date</label>
+        <label for="due_date">due date (optional) format(xxxx-xx-xx)</label>
         <input type="date" id="due_date" name="due_date">
     </div>
     <button type="submit" class="submit">add</button>

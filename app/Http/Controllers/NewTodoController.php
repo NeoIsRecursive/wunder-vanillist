@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Todo;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class NewTodoController extends Controller
 {
@@ -19,21 +20,17 @@ class NewTodoController extends Controller
     {
         //
 
-        if ($request['due_date'] === null) {
-            $request['due_date'] = date('Y-m-d');
-        }
-
         $data = request()->validate([
             'name' => ['required', 'string', 'max:255'],
-            'due_date' => ['date', 'after:' . date('Y-m-d')]
+            'due_date' => ['date', 'after:' . date('Y-m-d'), 'Nullable']
         ]);
 
 
-        $user = new Todo();
-        $user->name = trim($data['name']);
-        $user->due_date = $data['due_date'];
-        $user->user_id = Auth::user()->id;
-        $user->save();
+        $todo = new Todo();
+        $todo->name = trim($data['name']);
+        $todo->due_at = $data['due_date'];
+        $todo->user_id = Auth::user()->id;
+        $todo->save();
 
         return redirect(route('todo.list'));
     }
