@@ -7,7 +7,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\NewTodoController;
 use App\Http\Controllers\task\getTaskController;
 use App\Http\Controllers\task\NewTaskController;
-
+use App\Http\Controllers\task\UpdateTaskController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,14 +40,9 @@ Route::get('/newTodo', function () {
 //new task
 Route::post('newTask', NewTaskController::class)->middleware('auth')->name('task.create');
 
-//tasklist
-
-Route::get('/tasks/{todoid}', function ($todo_id) {
-    return view('components.user.todos.todoTask', ['todo_id' => $todo_id]);
-})->middleware('auth')->name('tasks');
 //json
 Route::post('/taskapi', GetTaskController::class)->middleware('auth')->name('tasks.get');
-
+Route::post('/taskComplete', UpdateTaskController::class)->middleware('auth')->name('tasks.complete');
 //list
 
 Route::get('/todos', function () {
