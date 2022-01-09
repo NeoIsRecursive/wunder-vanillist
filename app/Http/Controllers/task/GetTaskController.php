@@ -17,9 +17,16 @@ class GetTaskController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $data = request()->post('todo_id');
 
-        $tasks = DB::table('todos')->join('tasks', 'todos.id', '=', 'tasks.todo_id')->where('todos.id', 'IS', $data)->where('todos.user_id', 'is', auth()->id())->get();
+        $query = DB::table('todos')->join('tasks', 'tasks.todo_id', '=', 'todos.id')
+            ->where('todos.id', '=', request()->todo_id)
+            ->where('todos.user_id', '=', auth()->id());
+        $tasks = $query->get([
+            'todos.id as id',
+            'tasks.id as task_id',
+            'tasks.task as task_name',
+            'tasks.completed as completed',
+        ]);
         echo json_encode($tasks);
     }
 }
