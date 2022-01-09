@@ -1,27 +1,26 @@
 @include('components.nav')
 
-<?php
-
-use App\Models\Todo;
-use Illuminate\Support\Facades\Auth;
-
-$tasks = Todo::find(1)->tasks;
-
-foreach ($tasks as $task) {
-    print_r($task->id);
-    echo '<br>';
-    echo '<br>';
-}
-
-
-
-?>
-
-
 <main>
-
+    <meta name="_token" class="token" content="{{ csrf_token() }}">
 
 
     @include('components.user.tasks.new')
 </main>
+<script>
+    const url = '<?php echo route('tasks.get') ?>';
+    const token = document.querySelector('.token').content;
+    fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': token,
+            },
+            body: JSON.stringify({
+                'todo_id': 1,
+                'csrf-token': token,
+            })
+        })
+        .then(request => request.json())
+        .then(request => console.log(request));
+</script>
 @include('components.footer')
