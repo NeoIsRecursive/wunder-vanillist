@@ -4,7 +4,7 @@
         <label for="name">task:</label>
         <input type="text" name="task" id="name">
     </div>
-    <input type="hidden" value="{{ Route::input('todo_id') }}" name="todo_id" />
+    <input type="hidden" value="{{ Route::input('todoid') }}" name="todo_id" />
     <button type="submit" class="submit">add</button>
     @if ($errors->any())
     @foreach($errors->all() as $error)
