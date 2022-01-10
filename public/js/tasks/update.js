@@ -27,5 +27,7 @@ function changeName(taskId, taskName) {
       task_id: taskId,
       task_name: taskName,
     }),
-  }).then((response) => response);
+  })
+    .then((response) => response.json())
+    .then((response) => console.log(response));
 }

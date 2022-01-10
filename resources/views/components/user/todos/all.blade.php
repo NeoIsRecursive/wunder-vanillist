@@ -1,9 +1,10 @@
 <?php
 
-use App\Models\Todo;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 
-$todos = Todo::all()->where('user_id', 'is', Auth::user()->id);
+// $todos = Todo::all()->where('user_id', 'is', Auth::user()->id);
+$todos = Auth::user()->todos()->get();
 
 ?>
 
