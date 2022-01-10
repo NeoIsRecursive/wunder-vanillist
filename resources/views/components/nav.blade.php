@@ -27,4 +27,5 @@
             @endauth
             @endif
         </div>
+        <meta name="_token" class="token bg-green-100" content="{{ csrf_token() }}">
     </nav>
