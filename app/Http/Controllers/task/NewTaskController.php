@@ -28,5 +28,7 @@ class NewTaskController extends Controller
         $task->todo_id = $data['todo_id'];
         $task->completed = 0;
         $task->save();
+
+        echo json_encode($task);
     }
 }

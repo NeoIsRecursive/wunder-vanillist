@@ -10,6 +10,20 @@ function reveal(todoId) {
   parent.querySelector('p').setAttribute('onclick', 'hide(' + todoId + ')');
   const tasks = document.createElement('ul');
   tasks.setAttribute('id', 'listFor' + todoId);
+
+  const newTask = document.createElement('div');
+  const newTaskname = document.createElement('input');
+  const newTaskButton = document.createElement('button');
+  newTaskButton.textContent = 'Add new task';
+  newTaskButton.addEventListener('click', (event) => {
+    if (newTaskname.value.trim() === '') return alert('must type in some text');
+    addNewTask(todoId, newTaskname.value);
+    newTaskname.value = '';
+  });
+  newTask.appendChild(newTaskname);
+  newTask.appendChild(newTaskButton);
+
+  tasks.appendChild(newTask);
   parent.appendChild(tasks);
   getTasks(todoId, parent);
 }
@@ -21,31 +35,7 @@ function show(tasks, todoId) {
   }
   const parent = document.getElementById('listFor' + todoId);
   tasks.forEach((task) => {
-    const container = document.createElement('div');
-    const name = document.createElement('input');
-    const changeBtn = document.createElement('button');
-    changeBtn.innerText = 'save';
-    name.value = task.task_name;
-    name.addEventListener('keyup', (event) => {
-      if (event.key === 'Enter') changeName(task.task_id, name.value);
-    });
-    container.appendChild(name);
-    if (task.completed) {
-      container.className = 'bg-green-100';
-    }
-
-    container.addEventListener('click', (event) => {
-      let completed;
-      if (container.className === 'bg-green-100') {
-        completed = 1;
-        container.className = 'bg-amber-100';
-      } else {
-        completed = 0;
-        container.className = 'bg-green-100';
-      }
-
-      complete(task.task_id, completed);
-    });
+    const container = createTask(task);
     parent.appendChild(container);
   });
 }

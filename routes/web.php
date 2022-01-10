@@ -39,7 +39,7 @@ Route::get('/newTodo', function () {
 })->middleware('auth')->name('todo.new');
 
 //new task
-Route::post('newTask', NewTaskController::class)->middleware('auth')->name('task.create');
+Route::post('/newTask', NewTaskController::class)->middleware('auth')->name('task.create');
 
 //json
 Route::post('/taskapi', GetTaskController::class)->middleware('auth')->name('tasks.get');
