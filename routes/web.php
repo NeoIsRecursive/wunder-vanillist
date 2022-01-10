@@ -8,6 +8,7 @@ use App\Http\Controllers\NewTodoController;
 use App\Http\Controllers\task\getTaskController;
 use App\Http\Controllers\task\NewTaskController;
 use App\Http\Controllers\task\UpdateTaskController;
+use App\Http\Controllers\task\CompleteTaskController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,7 +43,8 @@ Route::post('newTask', NewTaskController::class)->middleware('auth')->name('task
 
 //json
 Route::post('/taskapi', GetTaskController::class)->middleware('auth')->name('tasks.get');
-Route::post('/taskComplete', UpdateTaskController::class)->middleware('auth')->name('tasks.complete');
+Route::post('/taskComplete', CompleteTaskController::class)->middleware('auth')->name('tasks.complete');
+Route::post('/taskChangeName', UpdateTaskController::class)->middleware('auth')->name('tasks.complete');
 //list
 
 Route::get('/todos', function () {

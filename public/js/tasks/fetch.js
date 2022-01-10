@@ -18,10 +18,14 @@ function show(tasks, todoId) {
   const parent = document.getElementById('listFor' + todoId);
   tasks.forEach((task) => {
     const container = document.createElement('div');
-
-    container.setAttribute('class', task.task_id);
-    container.innerText = task.task_name;
-
+    const name = document.createElement('input');
+    const changeBtn = document.createElement('button');
+    changeBtn.innerText = 'save';
+    name.value = task.task_name;
+    name.addEventListener('keyup', (event) => {
+      if (event.key === 'Enter') changeName(task.task_id, name.value);
+    });
+    container.appendChild(name);
     if (task.completed) {
       container.className = 'bg-green-100';
     }
@@ -52,27 +56,8 @@ function getTasks(todoId) {
     },
     body: JSON.stringify({
       todo_id: todoId,
-      'csrf-token': token,
     }),
   })
     .then((request) => request.json())
     .then((request) => show(request, todoId));
-}
-
-function complete(taskId, status) {
-  const token = document.querySelector('.token').content;
-  fetch('/taskComplete', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRF-Token': token,
-    },
-    body: JSON.stringify({
-      task_id: taskId,
-      completed: status,
-      'csrf-token': token,
-    }),
-  })
-    .then((request) => request.json())
-    .then((response) => console.log(response));
 }

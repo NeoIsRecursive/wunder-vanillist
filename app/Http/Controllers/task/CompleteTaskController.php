@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\task;
 
-class UpdateTaskController extends Controller
+class CompleteTaskController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -18,9 +18,13 @@ class UpdateTaskController extends Controller
     {
         //
         $task = task::find(request()->task_id);
-        $task->task = request()->task_name;
+        if (request()->completed == 0) {
+            $task->completed = 1;
+        } else {
+            $task->completed = 0;
+        }
         $task->save();
 
-        echo json_encode(request()->task_name);
+        echo json_encode(request()->completed);
     }
 }

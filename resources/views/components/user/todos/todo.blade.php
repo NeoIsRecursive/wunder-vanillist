@@ -1,9 +1,9 @@
-<li>
-    <div id="{{ $todo['id'] }}" class="flex justify-between items-center bg-amber-100 p-6 m-4">
+<div id="{{ $todo['id'] }}" class="bg-amber-100 p-6 m-4">
+    <div class="flex justify-between items-center">
         <p class="text-md" onclick="reveal(<?= $todo['id'] ?>)">{{ $todo['name'] }}</p>
         <div class="flex gap-2.5 items-center">
             <p>due to: {{ $todo['due_at'] }}</p>
-            <button class="bg-red-600 p-2">remove</button>
+            <button class="bg-red-600 p-2" onclick="remove(<?= $todo['id'] ?>)">remove</button>
         </div>
     </div>
-</li>
+</div>
