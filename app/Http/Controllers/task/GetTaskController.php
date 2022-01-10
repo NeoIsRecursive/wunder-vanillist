@@ -27,6 +27,11 @@ class GetTaskController extends Controller
             'tasks.task as task_name',
             'tasks.completed as completed',
         ]);
+
+        if (count($tasks) === 0) {
+            $tasks = 'none';
+        }
+
         echo json_encode($tasks);
     }
 }

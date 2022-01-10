@@ -15,6 +15,10 @@ function reveal(todoId) {
 }
 
 function show(tasks, todoId) {
+  if (tasks === 'none') {
+    alert('there is no tasks in that list, add new ones!');
+    return;
+  }
   const parent = document.getElementById('listFor' + todoId);
   tasks.forEach((task) => {
     const container = document.createElement('div');

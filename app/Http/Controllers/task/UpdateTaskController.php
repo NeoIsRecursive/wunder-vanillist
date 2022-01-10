@@ -20,7 +20,5 @@ class UpdateTaskController extends Controller
         $task = Task::find(request()->task_id);
         $task->task = request()->task_name;
         $task->save();
-
-        echo json_encode(request()->task_name);
     }
 }
