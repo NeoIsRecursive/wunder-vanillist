@@ -12,6 +12,7 @@ function reveal(todoId) {
   tasks.setAttribute('id', 'listFor' + todoId);
 
   const newTask = document.createElement('div');
+  newTask.classList += 'flex justify-between';
   const newTaskname = document.createElement('input');
   const newTaskButton = document.createElement('button');
   newTaskButton.textContent = 'Add new task';

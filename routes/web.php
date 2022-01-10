@@ -9,6 +9,8 @@ use App\Http\Controllers\task\getTaskController;
 use App\Http\Controllers\task\NewTaskController;
 use App\Http\Controllers\task\UpdateTaskController;
 use App\Http\Controllers\task\CompleteTaskController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +23,12 @@ use App\Http\Controllers\task\CompleteTaskController;
 */
 //pages
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::user()) {
+        $todos = Auth::user()->todos()->where('due_at', '=', date('Y-m-d'))->get();
+        return view('welcome')->with('todos', $todos);
+    } else {
+        return view('welcome');
+    }
 })->name('home');
 
 //user
@@ -48,7 +55,8 @@ Route::post('/taskChangeName', UpdateTaskController::class)->middleware('auth')-
 //list
 
 Route::get('/todos', function () {
-    return view('components.user.todos.all');
+    $todos = Auth::user()->todos()->get();
+    return view('components.user.todos.all')->with('todos', $todos);
 })->middleware('auth')->name('todo.list');
 
 //auth
