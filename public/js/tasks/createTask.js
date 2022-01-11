@@ -23,7 +23,6 @@ function createTask(task) {
       checkBox.setAttribute('checked', '');
       completed = 0;
     }
-
     complete(task.task_id, completed);
   });
   checkBoxContainer.appendChild(checkBox);

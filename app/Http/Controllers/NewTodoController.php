@@ -22,7 +22,7 @@ class NewTodoController extends Controller
 
         $data = request()->validate([
             'name' => ['required', 'string', 'max:255'],
-            'due_date' => ['date', 'after:' . date('Y-m-d'), 'Nullable']
+            'due_date' => ['date_format:Y-m-d', 'after:yesterday', 'Nullable']
         ]);
 
 

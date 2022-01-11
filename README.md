@@ -8,6 +8,12 @@ Todolist website, works pretty good and looks amazing (yes it does).
 
 yeah, I will get back to you on this one, run some Artisan and/or Composer commands proparbly.
 
+# Todo
+
+[] edit account email and password.
+[] upload a profile avatar image.
+[] view all tasks.
+
 # Code Review
 
 Code review written by [Jane Doh](https://github.com/username).
