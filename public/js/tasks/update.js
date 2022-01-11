@@ -10,9 +10,7 @@ function complete(taskId, status) {
       task_id: taskId,
       completed: status,
     }),
-  })
-    .then((request) => request.json())
-    .then((response) => console.log(response));
+  }).then((request) => request);
 }
 
 function changeName(taskId, taskName) {
@@ -27,7 +25,5 @@ function changeName(taskId, taskName) {
       task_id: taskId,
       task_name: taskName,
     }),
-  })
-    .then((response) => response.json())
-    .then((response) => console.log(response));
+  }).then((response) => response);
 }

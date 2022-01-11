@@ -11,5 +11,8 @@ function removeTodo(todoId) {
     }),
   })
     .then((request) => request.json())
-    .then((response) => console.log(response));
+    .then((response) => {
+      console.log(response);
+      document.getElementById(todoId).remove();
+    });
 }

@@ -1,13 +1,17 @@
 function hide(todoId) {
   const parent = document.getElementById(todoId);
-  parent.querySelector('p').setAttribute('onclick', 'reveal(' + todoId + ')');
+  parent
+    .querySelector('.openBtn')
+    .setAttribute('onclick', 'reveal(' + todoId + ')');
 
   document.getElementById('listFor' + todoId).remove();
 }
 
 function reveal(todoId) {
   const parent = document.getElementById(todoId);
-  parent.querySelector('p').setAttribute('onclick', 'hide(' + todoId + ')');
+  parent
+    .querySelector('.openBtn')
+    .setAttribute('onclick', 'hide(' + todoId + ')');
   const tasks = document.createElement('ul');
   tasks.setAttribute('id', 'listFor' + todoId);
 
@@ -31,7 +35,6 @@ function reveal(todoId) {
 
 function show(tasks, todoId) {
   if (tasks === 'none') {
-    alert('there is no tasks in that list, add new ones!');
     return;
   }
   const parent = document.getElementById('listFor' + todoId);
