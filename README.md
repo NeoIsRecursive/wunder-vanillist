@@ -1,12 +1,12 @@
 INSERT MANDATORY GIF
 
-# Project Title
+# Wunder Vanillist
 
-Text about the project and why it exists. This would also be a great place to link the project online.
+Todolist website, works pretty good and looks amazing (yes it does).
 
 # Installation
 
-Add the installation instructions.
+yeah, I will get back to you on this one, run some Artisan and/or Composer commands proparbly.
 
 # Code Review
 
