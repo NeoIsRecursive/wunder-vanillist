@@ -11,6 +11,7 @@ use App\Http\Controllers\task\NewTaskController;
 use App\Http\Controllers\task\UpdateTaskController;
 use App\Http\Controllers\task\CompleteTaskController;
 use App\Http\Controllers\todo\RemoveTodoController;
+use App\Http\Controllers\user\ChangeAvatarTodoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,7 @@ Route::get('/todos', function () {
 Route::get('/profile', function () {
     return view('components.user.profile');
 })->middleware('auth')->name('profile');
+Route::post('/changeAvatar', ChangeAvatarTodoController::class)->middleware('auth')->name('changeAvatar');
 
 //new todo
 Route::post('/newTodo', NewTodoController::class)->middleware('auth')->name('todo.create');

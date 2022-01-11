@@ -13,7 +13,7 @@
             @if (Route::has('login'))
             @auth
             <a href="{{ route('profile') }}" class="flex gap-0.125 items-center">
-                <img src="{{ auth()->user()->profile_image }}" alt="user image" class="w-8 h-8 hover:shadow" style='image-rendering: pixelated'>
+                <img src="{{ asset(Storage::url(auth()->user()->profile_image)) }}" alt="user image" class="w-8 h-8 hover:shadow" style='image-rendering: pixelated'>
                 <p class="nav-link">{{ auth()->user()->name }}</p>
             </a>
             <a href=" {{ route('logout') }}" class="nav-link">Log out

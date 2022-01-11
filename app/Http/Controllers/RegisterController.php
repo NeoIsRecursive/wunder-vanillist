@@ -50,8 +50,8 @@ class RegisterController extends Controller
                 imagesetpixel($Image, $Column - 1, $Row - 1, $Colour);
             }
         }
-        $path = 'image/' . $name . time() . '.png';
-        imagepng($Image, $path);
+        $path = 'image/avatars/' . $name . time() . '.png';
+        imagepng($Image);
         return $path;
     }
 }
