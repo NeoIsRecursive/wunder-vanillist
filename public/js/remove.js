@@ -1,4 +1,4 @@
-function remove(todoId) {
+function removeTodo(todoId) {
   const token = document.querySelector('.token').content;
   fetch('/removeTodo', {
     method: 'POST',
