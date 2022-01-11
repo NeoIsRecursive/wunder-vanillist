@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Storage;
 
 class RegisterController extends Controller
 {
@@ -50,8 +51,8 @@ class RegisterController extends Controller
                 imagesetpixel($Image, $Column - 1, $Row - 1, $Colour);
             }
         }
-        $path = 'image/avatars/' . $name . time() . '.png';
-        imagepng($Image);
-        return $path;
+        $tmp = 'avatars/' . $name . time() . '.png';
+        imagepng($Image, base_path() . '/public/storage/' . $tmp);
+        return $tmp;
     }
 }
