@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\task;
 
 use App\Http\Controllers\Controller;
@@ -17,8 +19,13 @@ class CompleteTaskController extends Controller
     public function __invoke(Request $request)
     {
         //
-        $task = Task::find(request()->task_id);
-        if (request()->completed == 0) {
+        $data = request()->validate([
+            'completed' => ['required', 'integer'],
+            'task_id' => ['required', 'integer']
+        ]);
+
+        $task = Task::find($data['task_id']);
+        if ($data['completed'] == 0) {
             $task->completed = 1;
         } else {
             $task->completed = 0;

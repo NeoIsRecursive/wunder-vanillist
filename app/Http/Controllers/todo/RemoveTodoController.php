@@ -19,8 +19,11 @@ class RemoveTodoController extends Controller
     {
         //
         DB::transaction(function () {
-            $todo = Auth::user()->todos()->where('id', '=', request()->todo_id);
-            $tasks = Auth::user()->tasks()->where('todo_id', '=', request()->todo_id);
+            $data = request()->validate([
+                'todo_id' => ['required', 'integer'],
+            ]);
+            $todo = Auth::user()->todos()->where('id', '=', $data['todo_id']);
+            $tasks = Auth::user()->tasks()->where('todo_id', '=', $data['todo_id']);
             echo json_encode(['tasks deleted' => $tasks->delete(), 'todo deleted' => $todo->delete()]);
         });
     }
