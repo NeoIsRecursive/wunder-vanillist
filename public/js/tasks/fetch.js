@@ -14,10 +14,18 @@ function reveal(todoId) {
     .setAttribute('onclick', 'hide(' + todoId + ')');
   const tasks = document.createElement('ul');
   tasks.setAttribute('id', 'listFor' + todoId);
-
   const newTask = document.createElement('div');
   newTask.classList += 'task';
+
+  const div = document.createElement('div');
   const newTaskname = document.createElement('input');
+  newTaskname.id = 'newTask';
+  const label = document.createElement('label');
+  label.setAttribute('for', 'newTask');
+  label.textContent = 'Task name';
+  div.appendChild(label);
+  div.appendChild(newTaskname);
+
   const newTaskButton = document.createElement('button');
   newTaskButton.textContent = 'Add task';
   newTaskButton.addEventListener('click', (event) => {
@@ -25,7 +33,8 @@ function reveal(todoId) {
     addNewTask(todoId, newTaskname.value);
     newTaskname.value = '';
   });
-  newTask.appendChild(newTaskname);
+
+  newTask.appendChild(div);
   newTask.appendChild(newTaskButton);
 
   tasks.appendChild(newTask);

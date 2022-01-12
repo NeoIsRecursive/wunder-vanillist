@@ -10,7 +10,7 @@ yeah, I will get back to you on this one, run some Artisan and/or Composer comma
 
 # Todo
 
--   [ ] edit account email and password.
+-   [x] edit account email and password.
 -   [x] upload a profile avatar image.
 -   [ ] view all tasks.
 

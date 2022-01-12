@@ -6,7 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\NewTodoController;
-use App\Http\Controllers\Task\getTaskController;
+use App\Http\Controllers\Task\GetTaskController;
 use App\Http\Controllers\Task\NewTaskController;
 use App\Http\Controllers\Task\UpdateTaskController;
 use App\Http\Controllers\Task\CompleteTaskController;

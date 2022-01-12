@@ -1,7 +1,7 @@
 @include('components.head')
 
 <body class="h-screen max-h-screen">
-    <nav class="flex justify-between items-center w-screen p-2 bg-amber-200">
+    <nav class="flex justify-between items-center w-full p-2 bg-amber-200">
         <div class="flex gap-2.5 items-center">
             <a href="{{ route('home') }}" class="hover:underline underline-offset-8 focus:underline focus:outline-none">
                 <h1 class="text-lg font-bold"> {{ config('app.name') }}</h1>

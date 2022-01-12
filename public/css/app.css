@@ -460,6 +460,9 @@ button {
 .m-4 {
   margin: 1rem;
 }
+.ml-4 {
+  margin-left: 1rem;
+}
 .flex {
   display: flex;
 }
@@ -487,8 +490,23 @@ button {
 .w-8 {
   width: 2rem;
 }
+.w-0\.5 {
+  width: 0.125rem;
+}
+.w-0 {
+  width: 0px;
+}
+.w-1\/2 {
+  width: 50%;
+}
+.w-full {
+  width: 100%;
+}
 .list-decimal {
   list-style-type: decimal;
+}
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -523,6 +541,14 @@ button {
   --tw-bg-opacity: 1;
   background-color: rgb(220 252 231 / var(--tw-bg-opacity));
 }
+.bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
+.bg-blue-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+}
 .bg-amber-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 243 199 / var(--tw-bg-opacity));
@@ -534,14 +560,6 @@ button {
 .bg-green-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(22 163 74 / var(--tw-bg-opacity));
-}
-.bg-red-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
-}
-.bg-blue-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
 }
 .p-4 {
   padding: 1rem;
@@ -557,6 +575,10 @@ button {
 }
 .text-lg {
   font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-xl {
+  font-size: 1.25rem;
   line-height: 1.75rem;
 }
 .font-bold {
@@ -599,6 +621,10 @@ button {
 
   .md\:inline {
     display: inline;
+  }
+
+  .md\:w-1\/2 {
+    width: 50%;
   }
 
   .md\:items-center {
