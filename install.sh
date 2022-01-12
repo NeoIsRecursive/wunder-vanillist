@@ -1,15 +1,21 @@
 #!/bin/bash
 
-mkdir storage/app/public/avatars
+#make folders for avatar storage
+mkdir -p storage/app/public/avatars
+#make db file
 touch database/database.sqlite
+#make .env file with sqlite (very good no duplicates of anything ...)
 cat .env.example | awk '{sub("DB_.*","DB_CONNECTION=sqlite")}1' | xargs printf '%s\n' >> .env
 
-php artisan key:generate
-
+#download all dependencies and install them.
 composer update
+
+php artisan key:generate
 
 php artisan storage:link
 
 php artisan migrate:fresh
+
+npm install
 
 npm run dev
