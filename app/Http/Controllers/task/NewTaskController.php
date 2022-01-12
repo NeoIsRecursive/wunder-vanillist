@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\task;
+namespace App\Http\Controllers\Task;
 
 use Illuminate\Http\Request;
 use App\Models\Task;

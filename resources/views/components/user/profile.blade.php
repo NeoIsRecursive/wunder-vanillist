@@ -8,7 +8,18 @@
     </div>
     <div class="flex justify-center items-center flex-col">
         <h2>edit profile</h2>
+        @if ($errors->any())
+        @foreach($errors->all() as $error)
+        <p>
+            {{ $error }}
+        </p>
+        @endforeach
+        @endif
         @include('components.user.profile.image')
+        <div class="grid grid-cols-2">
+            @include('components.user.profile.password')
+            @include('components.user.profile.email')
+        </div>
     </div>
 </main>
 

@@ -3,12 +3,5 @@
     <p>we only support jpg and png images up to 2megabytes</p>
     <input type="file" name="avatar">
     <button>upload</button>
-    @if ($errors->any())
-    @foreach($errors->all() as $error)
-    <p>
-        {{ $error }}
-    </p>
-    @endforeach
-    @endif
     @csrf
 </form>

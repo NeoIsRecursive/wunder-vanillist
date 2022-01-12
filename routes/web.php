@@ -6,13 +6,14 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\NewTodoController;
-use App\Http\Controllers\task\getTaskController;
-use App\Http\Controllers\task\NewTaskController;
-use App\Http\Controllers\task\UpdateTaskController;
-use App\Http\Controllers\task\CompleteTaskController;
-use App\Http\Controllers\todo\RemoveTodoController;
-use App\Http\Controllers\user\ChangeAvatarTodoController;
-
+use App\Http\Controllers\Task\getTaskController;
+use App\Http\Controllers\Task\NewTaskController;
+use App\Http\Controllers\Task\UpdateTaskController;
+use App\Http\Controllers\Task\CompleteTaskController;
+use App\Http\Controllers\Todo\RemoveTodoController;
+use App\Http\Controllers\User\ChangeAvatarTodoController;
+use App\Http\Controllers\User\ChangePasswordController;
+use App\Http\Controllers\User\ChangeEmailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +44,9 @@ Route::get('/profile', function () {
     return view('components.user.profile');
 })->middleware('auth')->name('profile');
 Route::post('/changeAvatar', ChangeAvatarTodoController::class)->middleware('auth')->name('changeAvatar');
+Route::post('/changePassword', ChangePasswordController::class)->middleware('auth')->name('changePassword');
+Route::post('/changeEmail', ChangeEmailController::class)->middleware('auth')->name('changeEmail');
+
 
 //new todo
 Route::post('/newTodo', NewTodoController::class)->middleware('auth')->name('todo.create');
