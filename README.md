@@ -1,4 +1,4 @@
-INSERT MANDATORY GIF
+![gif](https://media.giphy.com/media/TJrS7r0f6SOthGTiPe/giphy.gif)
 
 # Wunder Vanillist
 
