@@ -17,7 +17,11 @@ class ChangeAvatarTodoController extends Controller
     public function __invoke(Request $request)
     {
         //
-        $path = request()->file('avatar')->store('avatars', 'public');
+        $image = request()->validate([
+            'avatar' => ['required', 'mimes:jpg,png', 'max:2048']
+        ]);
+
+        $path = $image['avatar']->store('avatars', 'public');
         $user = Auth::user();
         $user->profile_image = $path;
         $user->save();
