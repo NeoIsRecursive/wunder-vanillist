@@ -6,13 +6,22 @@ Todolist website, works pretty good and looks amazing (yes it does).
 
 # Installation
 
-yeah, I will get back to you on this one, run some Artisan and/or Composer commands proparbly.
+1. open terminal.
+2. cd to where you want it.
+3. ´git clone https://github.com/neoisrecursive/wunder-vanillist´.
+4. ´cd wunder-vanillist´
+5. ´./install´
+6. that should install and fix everything for you so its only to run ´php artisan serve´.
 
 # Todo
 
 -   [x] edit account email and password.
 -   [x] upload a profile avatar image.
--   [ ] view all tasks.
+-   [x] view all tasks.
+-   [ ] Delete account.
+-   [ ] description on tasks or todos.
+-   [ ] delete todos.
+-   [ ] forgot password.
 
 # Code Review
 
