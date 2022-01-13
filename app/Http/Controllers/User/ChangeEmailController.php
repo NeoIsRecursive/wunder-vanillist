@@ -21,7 +21,7 @@ class ChangeEmailController extends Controller
         //
         $data = request()->validate([
             'current_email' => ['required'],
-            'new_email' => ['required', 'different:email', 'string', 'email', 'max:255', 'unique:users']
+            'new_email' => ['required', 'different:email', 'string', 'email', 'max:255', 'unique:users,email']
         ]);
 
         $user = Auth::user();
