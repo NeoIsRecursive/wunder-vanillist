@@ -7,11 +7,11 @@ Todolist website, works pretty good and looks amazing (yes it does).
 # Installation
 
 1. open terminal.
-2. cd to where you want it.
-3. ´git clone https://github.com/neoisrecursive/wunder-vanillist´.
-4. ´cd wunder-vanillist´
-5. ´./install´
-6. that should install and fix everything for you so its only to run ´php artisan serve´.
+2. `cd` to where you want it.
+3. `git clone https://github.com/neoisrecursive/wunder-vanillist`.
+4. `cd wunder-vanillist`.
+5. `./install`
+6. that should install and fix everything for you so its only to run `php artisan serve`.
 
 # Todo
 
