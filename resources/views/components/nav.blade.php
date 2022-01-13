@@ -8,6 +8,7 @@
             </a>
             <a href="{{ route('todo.list') }}" class="nav-link">Todos</a>
             <a href="{{ route('todo.new') }}" class="nav-link">New</a>
+            <a href="{{ route('tasks.all') }}" class="nav-link">Tasks</a>
         </div>
         <div class="font-semibold flex items-center">
             @if (Route::has('login'))

@@ -5,7 +5,7 @@ mkdir -p storage/app/public/avatars
 #make db file
 touch database/database.sqlite
 #make .env file with sqlite (very good no duplicates of anything ...)
-cat .env.example | awk '{sub("DB_.*","DB_CONNECTION=sqlite")}1' | xargs printf '%s\n' >> .env
+cat .env.example | awk '{gsub("DB_.*","DB_CONNECTION=sqlite")}1' | xargs printf '%s\n' >> .env
 
 #download all dependencies and install them.
 composer update

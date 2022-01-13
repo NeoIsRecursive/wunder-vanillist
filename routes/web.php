@@ -10,6 +10,7 @@ use App\Http\Controllers\Task\GetTaskController;
 use App\Http\Controllers\Task\NewTaskController;
 use App\Http\Controllers\Task\UpdateTaskController;
 use App\Http\Controllers\Task\CompleteTaskController;
+use App\Http\Controllers\Task\GetAllController;
 use App\Http\Controllers\Todo\RemoveTodoController;
 use App\Http\Controllers\User\ChangeAvatarTodoController;
 use App\Http\Controllers\User\ChangePasswordController;
@@ -62,6 +63,10 @@ Route::post('/removeTodo', RemoveTodoController::class)->middleware('auth')->nam
 Route::post('/taskapi', GetTaskController::class)->middleware('auth')->name('tasks.get');
 Route::post('/taskComplete', CompleteTaskController::class)->middleware('auth')->name('tasks.complete');
 Route::post('/taskChangeName', UpdateTaskController::class)->middleware('auth')->name('tasks.complete');
+Route::post('/taskapiAll', GetAllController::class)->middleware('auth')->name('tasksAll');
+Route::get('/all-tasks', function () {
+    return view('components.user.tasks.all');
+})->middleware('auth')->name('tasks.all');
 
 //auth
 Route::post('/login', LoginController::class)->name('login.check');
