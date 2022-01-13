@@ -3,6 +3,8 @@
 # Wunder Vanillist
 
 Todolist website, works pretty good and looks amazing (yes it does).
+[Test it here, but don't use your goto password.](http://neoishere.com:8000/)
+Also my npm doesnt work so no tailwind unfortunatly :(
 
 # Installation
 
