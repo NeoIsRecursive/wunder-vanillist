@@ -16,18 +16,21 @@ yeah, I will get back to you on this one, run some Artisan and/or Composer comma
 
 # Code Review
 
-Code review written by [Jane Doh](https://github.com/username).
+Code review written by [Albin Andersson](https://github.com/itisalbin).
 
-1. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-2. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-3. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-4. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-5. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-6. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-7. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-8. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-9. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-10. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
+Task has no description. (And deadline is on lists and not the individual tasks.)
+
+Routes in web.php only use 'post' and get, consider also using the verbs 'put', 'patch' and 'delete' where appropriate.
+
+The welcome-page and list todos routes has some logic in them. You might want to put it in controllers instead.
+
+Consider putting all routes that need authentication in a group:
+Route::group(['middleware' => ['auth']], function () {//Your routes}
+to not have to add it to the single routes.
+
+Perhaps more of a preference, but consider merging controllers with common objects/topics into bigger ones, instead of using one per function. E.g. TaskController, TodoController.
+
+due.blade.php has some commented out code that are not used.
 
 # Testers
 
