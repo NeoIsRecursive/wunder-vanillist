@@ -45,5 +45,5 @@ due.blade.php has some commented out code that are not used.
 
 Tested by the following people:
 
-1. Jane Doe
-2. John Doe
+1. Albin Andersson
+2. Theo Sandell
