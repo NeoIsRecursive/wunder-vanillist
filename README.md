@@ -4,7 +4,7 @@
 
 Todolist website, works pretty good and looks amazing (yes it does).
 [Test it here, but don't use your goto password.](https://wunder-vanillist.neo.fyi)
-Also my npm doesnt work so no tailwind unfortunatly :(
+Image upload doesn't work (host doesn't allow I guess) and sometimes all tasks just get completed...
 
 # Installation
 
