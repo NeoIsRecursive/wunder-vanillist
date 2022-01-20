@@ -10,11 +10,14 @@ use App\Http\Controllers\Task\GetTaskController;
 use App\Http\Controllers\Task\NewTaskController;
 use App\Http\Controllers\Task\UpdateTaskController;
 use App\Http\Controllers\Task\CompleteTaskController;
+use App\Http\Controllers\Task\DeleteTaskController;
 use App\Http\Controllers\Task\GetAllController;
 use App\Http\Controllers\Todo\RemoveTodoController;
 use App\Http\Controllers\User\ChangeAvatarTodoController;
 use App\Http\Controllers\User\ChangePasswordController;
 use App\Http\Controllers\User\ChangeEmailController;
+use App\Http\Controllers\User\DeleteUserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,6 +50,7 @@ Route::get('/profile', function () {
 Route::post('/changeAvatar', ChangeAvatarTodoController::class)->middleware('auth')->name('changeAvatar');
 Route::post('/changePassword', ChangePasswordController::class)->middleware('auth')->name('changePassword');
 Route::post('/changeEmail', ChangeEmailController::class)->middleware('auth')->name('changeEmail');
+Route::delete('/deleteUser', DeleteUserController::class)->middleware('auth')->name('deleteUser');
 
 
 //new todo
@@ -57,6 +61,8 @@ Route::get('/newTodo', function () {
 
 //new task
 Route::post('/newTask', NewTaskController::class)->middleware('auth')->name('task.create');
+//delete task
+Route::post('/deleteTask', DeleteTaskController::class)->middleware('auth')->name('deleteTask');
 //todo
 Route::post('/removeTodo', RemoveTodoController::class)->middleware('auth')->name('todo.remove');
 //task json

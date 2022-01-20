@@ -27,3 +27,23 @@ function changeName(taskId, taskName) {
     }),
   }).then((response) => response);
 }
+
+function deleteTask(taskId) {
+  const token = document.querySelector('.token').content;
+  fetch('/deleteTask', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRF-Token': token,
+    },
+    body: JSON.stringify({
+      task_id: taskId,
+    }),
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      if (response.tasks_deleted)
+        document.getElementById('task' + taskId).remove();
+      console.log(response.tasks_deleted);
+    });
+}
