@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Notifications\WelcomeEmailNotification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Storage;
@@ -32,8 +33,10 @@ class RegisterController extends Controller
         $user->email = $data['email'];
         $user->profile_image = $this->createAvatar($user->name);
         $user->save();
+        $user->notify(new WelcomeEmailNotification());
 
         Auth::loginUsingId($user->id);
+
 
         return redirect(route('home'));
     }
