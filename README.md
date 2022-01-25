@@ -49,3 +49,4 @@ Tested by the following people:
 
 1. Albin Andersson
 2. Theo Sandell
+3. Patrik Staaf
