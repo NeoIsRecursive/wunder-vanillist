@@ -40,7 +40,7 @@ class WelcomeEmailNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
+        return (new MailMessage())
             ->line('Welcome to wunder-vanillist!')
             ->action('Go to the home page', url('/'))
             ->line('Thank you for using our application!');
