@@ -54,7 +54,7 @@ class RegisterController extends Controller
             }
         }
         $tmp = 'avatars/' . $name . time() . '.png';
-        imagepng($Image, base_path() . '/public/storage/' . $tmp);
+        imagepng($Image, base_path() . '/storage/app/public/' . $tmp);
         return $tmp;
     }
 }
