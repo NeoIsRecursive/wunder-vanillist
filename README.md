@@ -4,7 +4,12 @@
 
 Todolist website, works pretty good and looks amazing (yes it does).
 [Test it here, but don't use your goto password.](https://wunder-vanillist.neo.fyi)
-Image upload doesn't work (host doesn't allow I guess) and sometimes all tasks just get completed...
+
+### [Wunderlist+](https://github.com/NeoIsRecursive/wunder-vanillist/tree/wunderlist+)
+Is also here in master/main, but I'm leaving the branch just in case.
+<br>
+Functions added by [Patrik Staaf](https://github.com/patrikstaaf)
+
 
 # Installation
 
@@ -20,9 +25,9 @@ Image upload doesn't work (host doesn't allow I guess) and sometimes all tasks j
 -   [x] edit account email and password.
 -   [x] upload a profile avatar image.
 -   [x] view all tasks.
--   [ ] Delete account.
+-   [x] Delete account. **Wunderlist+**
 -   [ ] description on tasks or todos.
--   [ ] delete todos.
+-   [x] delete todos. **Wunderlist+**
 -   [ ] forgot password.
 
 # Code Review
