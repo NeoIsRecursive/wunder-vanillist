@@ -23,6 +23,7 @@
             @include('components.user.profile.password')
             @include('components.user.profile.email')
         </div>
+        @include('components.user.profile.delete')
     </div>
 </main>
 

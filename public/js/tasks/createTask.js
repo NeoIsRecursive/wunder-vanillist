@@ -1,6 +1,7 @@
 function createTask(task) {
   const container = document.createElement('div');
   container.classList += 'task';
+  container.setAttribute('id', 'task' + task.task_id);
   const name = document.createElement('input');
   const changeBtn = document.createElement('button');
   changeBtn.innerText = 'save';
@@ -34,8 +35,20 @@ function createTask(task) {
   checkBoxContainer.appendChild(checkBox);
   checkBoxContainer.appendChild(name);
 
+  // remove task button
+  const deleteButton = document.createElement('button');
+  deleteButton.innerText = 'delete';
+
+  deleteButton.addEventListener('click', (event) => {
+    if (confirm('Are you sure?')) deleteTask(task.task_id);
+  });
+
+  const buttonWrapper = document.createElement('div');
+  buttonWrapper.appendChild(deleteButton);
+  buttonWrapper.appendChild(changeBtn);
+
   container.appendChild(checkBoxContainer);
-  container.appendChild(changeBtn);
+  container.appendChild(buttonWrapper);
 
   return container;
 }
